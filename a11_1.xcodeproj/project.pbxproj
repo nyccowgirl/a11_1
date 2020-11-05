@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7A93C0FD25530EDF0097611D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A93C0FC25530EDF0097611D /* main.cpp */; };
+		7A93C106255311070097611D /* output.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A93C105255311070097611D /* output.cpp */; };
+		7A93C10A255312190097611D /* mystring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A93C108255312190097611D /* mystring.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,9 @@
 /* Begin PBXFileReference section */
 		7A93C0F925530EDF0097611D /* a11_1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = a11_1; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A93C0FC25530EDF0097611D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		7A93C105255311070097611D /* output.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = output.cpp; sourceTree = "<group>"; };
+		7A93C108255312190097611D /* mystring.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mystring.cpp; sourceTree = "<group>"; };
+		7A93C109255312190097611D /* mystring.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = mystring.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,9 @@
 			isa = PBXGroup;
 			children = (
 				7A93C0FC25530EDF0097611D /* main.cpp */,
+				7A93C108255312190097611D /* mystring.cpp */,
+				7A93C109255312190097611D /* mystring.hpp */,
+				7A93C105255311070097611D /* output.cpp */,
 			);
 			path = a11_1;
 			sourceTree = "<group>";
@@ -118,7 +126,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A93C106255311070097611D /* output.cpp in Sources */,
 				7A93C0FD25530EDF0097611D /* main.cpp in Sources */,
+				7A93C10A255312190097611D /* mystring.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
