@@ -27,148 +27,106 @@ namespace cs_mystring {
 
 /*
  
- TO UPDATE
+ The MyString class can be used to create objects that store a cstring. The following
+ functions are available:
 
- The MyString class can be used to create objects that store a fraction, including numerator
- and denominator. The following functions are available:
+ MyString();
+  post: The calling object has been created and initialized to empty MyString object.
+ 
+ MyString(const char *inCstring);
+  post: The calling object has been created and initialized so that the cstring is the
+        inCstring parameter.
+ 
+ MyString(const MyString &str);
+  post: The calling object has been created and initialized so that the cstring is the value
+        of MyString str parameter.
+ 
+ ~MyString();
+  post: Destructor for the class.
+ 
+ int length() const;
+  post: Returns the length of MyString object.
+ 
+ char operator[](int index) const;
+  pre: Paramenter must be 0 or positive value.
+  post: Returns the character at the index specified of the calling object. If index is not
+        between 0 and one less than the length of the calling object, the program is
+        aborted.
+ 
+ char& operator[](int index);
+  pre: Parameter must be 0 or positive value.
+  post: Returns reference to a variable at the index specified of the calling object. If the
+        index is not between 0 and one less than the length of the calling object, the
+        program is aborted.
+ 
+ MyString operator=(const char *inCstring);
+  post: Returns the value of inCstring that was assigned to the calling object.
+ 
+ MyString operator=(const MyString &right);
+  post: Returns the value of the MyString object that was assigned to the calling object.
+ 
+ friend bool operator<(const MyString &left, const MyString &right);
+  post: Returns true if the MyString of the parameter "left" is less than the MyString of
+        the parameter "right" based on ASCII values. Otherwise, returns false.
+ 
+ friend bool operator<=(const MyString &left, const MyString &right);
+  post: Returns true if the MyString of the parameter "left" is less than or equal to the
+        MyString of the parameter "right" based on ASCII values. Otherwise, returns false.
+ 
+ friend bool operator>(const MyString &left, const MyString &right);
+  post: Returns true if the MyString of the parameter "left" is greater than the MyString of
+        the parameter "right" based on ASCII values. Otherwise, returns false.
+ 
+ friend bool operator>=(const MyString &left, const MyString &right);
+  post: Returns true if the MyString of the parameter "left" is greater than or equal to the
+        MyString of the parameter "right" based on ASCII values. Otherwise, returns false.
 
- Fraction(int inNum, int inDenom);
-  post: The calling object has been created and initialized so that the numerator is the
-        inNum parameter (with default of 0), and the denominator is the inDenom
-        parameter (with default of 1). If inDenom is 0, program is aborted.
- 
- friend Fraction operator+(const Fraction &left, const Fraction &right);
-  post: Returns the Fraction determined by adding the Fraction (or integer) of the
-        parameter "left" with the Fraction (or integer) of the paramenter "right".
- 
- friend Fraction operator-(const Fraction &left, const Fraction &right);
-  post: Returns the Fraction determined by subtracting the Fraction (or integer) of
-        the parameter "right" from the Fraction (or integer) of the parameter "left".
- 
- friend Fraction operator*(const Fraction &left, const Fraction &right);
-  post: Returns the Fraction determined by multiplying the Fraction (or integer) of
-        the parameter "left" by the Fraction (or integer) of the parameter "right".
- 
- friend Fraction operator/(const Fraction &left, const Fraction &right);
-  post: Returns the Fraction determined by dividing the Fraction (or integer) of the
-        parameter "left" by the Fraction (or integer) of the parameter "right".
- 
- friend bool operator<(const Fraction &left, const Fraction &right);
-  post: Returns true if the Fraction (or integer) of the parameter "left" is less
-        than the Fraction (or integer) of the parameter "right". Otherwise, returns
-        false.
- 
- friend bool operator<=(const Fraction &left, const Fraction &right);
-  post: Returns true if the Fraction (or integer) of the parameter "left" is less
-        than or equal to the Fraction (or integer) of the parameter "right".
-        Otherwise, returns false.
- 
- friend bool operator>(const Fraction &left, const Fraction &right);
-  post: Returns true if the Fraction (or integer) of the parameter "left" is greater
-        than the Fraction (or integer) of the parameter "right". Otherwise, returns
-        false.
- 
- friend bool operator>=(const Fraction &left, const Fraction &right);
-  post: Returns true if the Fraction (or integer) of the parameter "left" is greater
-        than or equal to the Fraction (or integer) of the parameter "right".
-        Otherwise, returns false.
- 
- friend bool operator==(const Fraction &left, const Fraction &right);
-  post: Returns true if the Fraction (or integer) of the parameter "left" is equal to
-        the Fraction (or integer) of the parameter "right". Otherwise, returns false.
- 
- friend bool operator!=(const Fraction &left, const Fraction &right);
-  post: Returns true if the Fraction (or integer) of the parameter "left" is not
-        equal to the Fraction (or integer) of the parameter "right". Otherwise,
-        returns false.
- 
- Fraction operator+=(const Fraction &right);
-  post: Returns the Fraction determined by adding the calling object with the Fraction (or
-        integer) of the parameter "right".
- 
- Fraction operator-=(const Fraction &right);
-  post: Returns the Fraction determined by subtracting the calling object with the Fraction
-        (or integer) of the parameter "right".
- 
- Fraction operator*=(const Fraction &right);
-  post: Returns the Fraction determined by multiplying the calling object by the Fraction
-        (or integer) of the parameter "right".
- 
- Fraction operator/=(const Fraction &right);
-  post: Returns the Fraction determined by dividing the calling object by the Fraction (or
-        integer) of the parameter "right".
- 
- Fraction operator++();
-  post: Returns the Fraction determined by incrementing the calling object by 1
-        (pre-increment operator).
- 
- Fraction operator++(int);
-  post: Returns the original calling object after incrementing it by 1 (post-increment
-        operator).
- 
- Fraction operator--();
-  post: Returns the Fraction determined be decrementing the calling object by 1
-        (pre-decrement operator).
- 
- Fraction operator--(int);
-  post: Returns the original calling object after decrementing it by 1 (post-decrement
-        operator).
- 
- friend std::istream &operator<<(std::istream &in, Fraction &right);
-  post: Reads a line from file in formats of W, W+N/D or N/D, and converts it into a
-        Fraction object.
+ friend bool operator==(const MyString &left, const MyString &right);
+  post: Returns true if the MyString of the parameter "left" is equal to the MyString of
+        the parameter "right" based on ASCII values. Otherwise, returns false.
 
- friend std::ostream &operator<<(std::ostream &out, const Fraction &right);
-  post: The calling object has been printed to the console window in the formats of W,
-        W+N/D or N/D.
+ friend bool operator!=(const MyString &left, const MyString &right);
+  post: Returns true if the MyString of the parameter "left" is not equal to the MyString
+        of the parameter "right". Otherwise, returns false.
+ 
+ friend std::istream &operator>>(std::istream &in, MyString &right);
+  post: Reads a line from file, and converts each line into a MyString object.
+
+ friend std::ostream &operator<<(std::ostream &out, const MyString &right);
+  post: The calling object has been printed to the console window in the formats of string.
          
 */
 
-class MyString
-{
-public:
-    static const int MAX_SIZE = 151;
-    MyString();
-    MyString(const char *inCstring);
-    MyString(const MyString &str);
+    class MyString {
+        public:
+            static const int MAX_SIZE = 151;
+            MyString();
+            MyString(const char *inCstring);
+            MyString(const MyString &str);
+            ~MyString();
+            int length() const;
+            char operator[](int index) const;
+            char& operator[](int index);
+            MyString operator=(const char *inCstring);
+            MyString operator=(const MyString &right);
+            friend bool operator<(const MyString &left, const MyString &right);
+            friend bool operator<=(const MyString &left, const MyString &right);
+            friend bool operator>(const MyString &left, const MyString &right);
+            friend bool operator>=(const MyString &left, const MyString &right);
+            friend bool operator==(const MyString &left, const MyString &right);
+            friend bool operator!=(const MyString &left, const MyString &right);
+            friend std::istream &operator>>(std::istream &in, MyString &right);
+            friend std::ostream &operator<<(std::ostream &out, const MyString &right);
 
-    ~MyString();
-    MyString operator=(const char *inCstring);
-    MyString operator=(const MyString &right);
-
-    int length() const;
-
-    char operator[](int index) const;
-    char& operator[](int index);
-//    friend Fraction operator+(const Fraction &left, const Fraction &right);
-//    friend Fraction operator-(const Fraction &left, const Fraction &right);
-//    friend Fraction operator*(const Fraction &left, const Fraction &right);
-//    friend Fraction operator/(const Fraction &left, const Fraction &right);
-    friend bool operator<(const MyString &left, const MyString &right);
-    friend bool operator<=(const MyString &left, const MyString &right);
-    friend bool operator>(const MyString &left, const MyString &right);
-    friend bool operator>=(const MyString &left, const MyString &right);
-    friend bool operator==(const MyString &left, const MyString &right);
-    friend bool operator!=(const MyString &left, const MyString &right);
-//    Fraction operator+=(const Fraction &right);
-//    Fraction operator-=(const Fraction &right);
-//    Fraction operator*=(const Fraction &right);
-//    Fraction operator/=(const Fraction &right);
-//    Fraction operator++();
-//    Fraction operator++(int);
-//    Fraction operator--();
-//    Fraction operator--(int);
-    friend std::istream &operator>>(std::istream &in, MyString &right);
-    friend std::ostream &operator<<(std::ostream &out, const MyString &right);
-
-private:
-    char *cstring;
-};
+        private:
+            char *cstring;
+    };
 }
 
 
 
 #endif /* mystring_hpp */
+
 
 /*
  ----- Testing basic String creation & printing
