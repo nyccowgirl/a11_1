@@ -99,7 +99,7 @@ namespace cs_mystring {
 
     class MyString {
         public:
-            static const int MAX_SIZE = 151;
+            static const int MAX_SIZE = 101;
             MyString();
             MyString(const char *inCstring);
             MyString(const MyString &str);

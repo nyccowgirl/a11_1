@@ -27,7 +27,7 @@ namespace cs_mystring {
 
 /*
   
- Class Invariant: a MyString object has one char data member: cstring, which stores an
+ Class Invariant: a MyString object has one char data member - cstring, which stores an
  array of characters.
     
 */
